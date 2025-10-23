@@ -39,5 +39,6 @@ public:
   void remove(const Task &t);
   void remove(int index);
   void print();
+  void undo();
 };
 #endif // !TASKMANAGER_H
