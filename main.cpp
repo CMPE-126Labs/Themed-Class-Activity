@@ -19,4 +19,13 @@ int main() {
   taskList.print();
   taskList.undo();
   taskList.print();
+  taskList.removeDone();
+  taskList.print();
+  Task task3("Task #3");
+  taskList.add(task3);
+  taskList.print();
+  taskList.removeDone();
+  taskList.print();
+  taskList.removeDone();
+  taskList.removeDone();
 }

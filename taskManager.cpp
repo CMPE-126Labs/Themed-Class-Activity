@@ -7,6 +7,7 @@ taskManager::taskManager() {}
 
 void taskManager::add(const Task &t) {
   this->list.push_back(t);
+  this->queue.push(t);
   int index = this->list.size() - 1;
   taskDetails temp(t, index, true);
   this->stack.push(temp);
@@ -27,6 +28,16 @@ void taskManager::remove(int index) {
     this->list.erase(this->list.begin() + index);
     this->stack.push(temp);
   }
+}
+
+void taskManager::removeDone() {
+  Task temp;
+  temp = this->queue.front();
+  if(list.size() != 0) { 
+    this->list.erase(this->list.begin());
+  }
+  else
+    std::cout << "All Tasks Done!" << std::endl;
 }
 
 void taskManager::print() {

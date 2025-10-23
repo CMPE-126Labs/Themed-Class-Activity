@@ -2,6 +2,7 @@
 #define TASKMANAGER_H
 #include <iostream>
 #include <stack>
+#include <queue>
 #include <string>
 #include <vector>
 
@@ -20,6 +21,8 @@ struct taskDetails {
   int index;
   bool isAdded;
 
+  taskDetails() {};
+
   taskDetails(Task task, int index, bool isAdded) {
     this->task = task;
     this->index = index;
@@ -31,6 +34,7 @@ class taskManager {
 private:
   std::vector<Task> list;
   std::stack<taskDetails> stack;
+  std::queue<Task> queue;
 
 public:
   taskManager(const Task &t);
@@ -38,6 +42,7 @@ public:
   void add(const Task &t);
   void remove(const Task &t);
   void remove(int index);
+  void removeDone();
   void print();
   void undo();
 };
