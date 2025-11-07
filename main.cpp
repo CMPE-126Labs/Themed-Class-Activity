@@ -28,4 +28,11 @@ int main() {
   taskList.print();
   taskList.removeDone();
   taskList.removeDone();
+
+  taskList.add(task1);
+  taskList.print();
+  std::cout << "Task 1 is at index: " << taskList.search(task1) << std::endl;
+  std::cout << "Task 2 is at index: " << taskList.search(task2) << std::endl;
+  taskList.removeDone();
+  taskList.removeDone();
 }

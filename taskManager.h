@@ -1,15 +1,15 @@
 #ifndef TASKMANAGER_H
 #define TASKMANAGER_H
 #include <iostream>
-#include <stack>
 #include <queue>
+#include <stack>
 #include <string>
 #include <vector>
 
 struct Task {
   std::string name;
 
-  bool operator==(const Task &other) { return this->name == other.name; }
+  bool operator==(const Task &other) const { return this->name == other.name; }
 
   Task() { this->name = "Default Task"; }
 
@@ -45,5 +45,6 @@ public:
   void removeDone();
   void print();
   void undo();
+  int search(const Task &t) const;
 };
 #endif // !TASKMANAGER_H

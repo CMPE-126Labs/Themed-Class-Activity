@@ -33,10 +33,9 @@ void taskManager::remove(int index) {
 void taskManager::removeDone() {
   Task temp;
   temp = this->queue.front();
-  if(list.size() != 0) { 
+  if (list.size() != 0) {
     this->list.erase(this->list.begin());
-  }
-  else
+  } else
     std::cout << "All Tasks Done!" << std::endl;
 }
 
@@ -73,4 +72,18 @@ void taskManager::undo() {
       this->list.erase(this->list.begin() + temp.index);
     }
   }
+}
+
+int taskManager::search(const Task &t) const {
+  if (this->list.empty()) {
+    return -1;
+  }
+
+  for (int i = 0; i < this->list.size(); i++) {
+    if (t == this->list.at(i)) {
+      return i;
+    }
+  }
+
+  return -1;
 }
